@@ -6,14 +6,14 @@ import CreateRoom from './pages/createRoom';
 import GameRoom from './pages/gameRoom'   ; 
 import GameSummary from './pages/gameSummary';
 import MainMenu from './pages/mainMenu';
-
+import Welcome from './pages/welcomePage'
 
 
 function App() {
 
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
-  // const [user, setUser] = useState ("ami")
+  const [user, setUser] = useState ("ami")
   
   const fetchQuestions = async (category = "", difficulty = "") => {
         const { data } = await axios.get(
@@ -26,7 +26,9 @@ function App() {
     };
 
 //  Server fetch requests = async etc...     
-// 
+  const sendUser = async (user = {user}) => {
+
+  }
 
 
 return (
@@ -35,12 +37,13 @@ return (
         {/* <Route exactpath="/"><Welcome/></Route> */}
         {/* <Route path="/menu"><MainMenu/></Route> */}
         {/* <Route path="/join"><RoomSelector/></Route> */}
-        <Route path="/" element={<MainMenu />} ></Route>
-          <Route path="/create" element={<CreateRoom fetchQuestions={fetchQuestions}/>}></Route>
-          <Route path="/game" element={<GameRoom questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
-          {/* <Route path="/lobby"><Lobby/></Route> */}
-          <Route path="/summary" element={<GameSummary score={score}/>}></Route>
-          {/* <Route path="/leaderboard"><LeaderBoard/></Route> */}
+        <Route path="/" element={<Welcome user={user} setUser={setUser} sendUser={sendUser}/>} ></Route>
+        <Route path="/main" element={<MainMenu user={user} />}/>
+        <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions}/>}></Route>
+        <Route path="/game" element={<GameRoom user={user} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
+        {/* <Route path="/lobby"><Lobby/></Route> */}
+        <Route path="/summary" element={<GameSummary user={user} score={score}/>}></Route>
+        {/* <Route path="/leaderboard"><LeaderBoard/></Route> */}
         
       </Routes>
   
