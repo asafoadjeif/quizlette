@@ -1,28 +1,18 @@
-import react, { useState } from "react"
-import { NavLink, useHistory } from 'react-router-dom';
-import login from '../actions/login';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Link, Outlet} from 'react-router-dom';
 
 
 const MainMenu = () => {
 
-    const [ user, setUser ] = useState('friend')
-    
-    const loadUser = async () => {
-        setUser({response})
-    }
+  return (
+    <div>
+    <button >
+        <Link to='/create'>Create</Link>
+    </button>
 
+    <Outlet />
+    </div>
+  );
+};
 
-
-
-    return (
-        <span>
-            
-            <p>Hello {user}! What would you like to do?</p>
-
-
-            <NavLink className="active-link" to="/create">Create Room</NavLink>
-            <NavLink className="active-link" to="/join">Join Room</NavLink>
-            <NavLink className="active-link" to="/leaderboard">Leader Board</NavLink>
-        </span>
-    );
-}
+export default MainMenu

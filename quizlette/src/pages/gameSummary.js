@@ -1,11 +1,26 @@
-import react from "react"
-import { NavLink, useHistory } from 'react-router-dom';
+import { Button } from "@material-ui/core";
+import { useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-const GameSummary = () => {
 
-    return (
-        <>
-        <NavLink className="menu-link" to="/menu">Go to Menu</NavLink>
-        </>
-    );
-}
+const Result = ({ score }) => {
+  const navigate = useNavigate();
+
+
+  return (
+    <div className="result">
+      <span className="title">Final Score : {score}</span>
+      <Button
+        variant="contained"
+        color="secondary"
+        size="large"
+        // style={{ alignSelf: "center", marginTop: 20 }}
+        // href="/"
+      >
+       <Link to="/">Back to main</Link>
+      </Button>
+    </div>
+  );
+};
+
+export default Result;
