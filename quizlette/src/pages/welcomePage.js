@@ -1,18 +1,13 @@
 import react, { useEffect } from "react"
-import { Button, MenuItem, TextField } from "@material-ui/core";
+import { Button, MenuItem, TextField, FormControl, InputLabel, Select, Menu } from "@material-ui/core";
 import { useState } from "react";
 import { useHistory, Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
+import NameInput from "../components/NameInput";
 
 
+const WelcomePage = ({ user }) => {
 
-
-const WelcomePage = ({ setUser, user }) => {
-
-
-    const updateInput = (e) => {
-      setUser(e.target.value)
-    }
     const handleSubmit = (e) => {
       e.preventDefault();
       try{
@@ -33,18 +28,42 @@ const WelcomePage = ({ setUser, user }) => {
       }
     }
 
+      const [players, setPlayers] = useState([]);
+
+      const handleChange = (e) => {
+        setPlayers([])
+        let playersArr= []
+        let count = e.target.value
+        for(let i = 0; i < count ; i++){
+          playersArr.push(i)
+        };
+        setPlayers(playersArr)
+      }
+
     return (
          <>
-         <form /*onSubmit={handleSubmit}*/>
+         <form>
           <div className="settings__select">
-            <TextField
-              style={{ marginBottom: 25 }}
-              label="Enter Your Name"
-              variant="outlined"
-              onChange={updateInput}
-            />
+            <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Number of Players</InputLabel>
+            <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={players}
+            label="Age"
+            onChange={handleChange}
+            >
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+            </Select>
+            </FormControl>
+            <div>
+            {players.map((player) => <NameInput/>)}
+            </div>
             <Button type="submit" onClick={handleSubmit}>
-              <Link className="menu-link" to="/main">Submit Name</Link>
+              <Link className="menu-link" to="/main">Play</Link>
             </Button>
           </div>
         </form>

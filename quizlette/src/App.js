@@ -41,23 +41,6 @@ function App() {
   };
 
   
-
-
-  // const sendScore = async (user/* = {user}*/) => {
-  //   await axios
-  //     .patch(`https://quizlette.herokuapp.com/users/${}/points`, {
-  //       Points: score
-  //     })
-  //     .then(function () {
-  //       alert("Points successfully");
-  //       // window.location.reload();
-  //     })
-  //     .catch(function () {
-  //       alert("Could not create account. Please try again");
-  //     });
-  // }
-
-
 return (
   
       <Routes>
