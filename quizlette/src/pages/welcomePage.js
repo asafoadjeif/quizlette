@@ -22,19 +22,17 @@ const WelcomePage = ({ setUser, user }) => {
       }   
     }
 
-    const sendUser = async (user/* = {user}*/) => {
-    await axios
-      .post("http://localhost:8000/users", {
-        Name: user
-      })
-      .then(function () {
-        alert("User created successfully");
-        // window.location.reload();
-      })
-      .catch(function () {
-        alert("Could not create account. Please try again");
-      });
-  }
+    const sendUser = async(user) => {
+      try {
+        let result = await axios.post("http://localhost:8000/users", {
+          Name: user
+        })
+        console.log(result)
+      } catch (err){
+        console.log(err)
+      }
+    }
+
     return (
          <>
          <form /*onSubmit={handleSubmit}*/>

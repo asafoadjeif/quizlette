@@ -5,13 +5,6 @@ import { BrowserRouter, Routes, Route, Link, Outlet} from 'react-router-dom';
 const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
 
 
-
-  // useEffect( () => {
-  //   sendUser(user)
-  //   // sendTicket
-  // }, [] )
-
-
   return (
     <div>
 
