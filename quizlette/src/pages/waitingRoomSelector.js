@@ -1,7 +1,7 @@
 import react from "react"
 import { NavLink, useHistory } from 'react-router-dom';
 
-const WelcomePage = () => {
+const WaitingPage = () => {
 
     return (
         <>
@@ -9,3 +9,5 @@ const WelcomePage = () => {
         </>
     );
 }
+
+export default WaitingPage

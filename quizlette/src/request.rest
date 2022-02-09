@@ -1,0 +1,7 @@
+POST https://quizlette.herokuapp.com/users
+Content-Type: application/json
+
+{
+    "Name": "Freddy",
+}
+
