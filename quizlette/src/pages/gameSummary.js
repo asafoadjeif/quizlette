@@ -3,8 +3,15 @@ import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 
-const Result = ({ score }) => {
+const Result = ({ score, compareScore }) => {
   const navigate = useNavigate();
+
+  useEffect( () => {
+
+    compareScore()
+
+  })
+
 
 
   return (

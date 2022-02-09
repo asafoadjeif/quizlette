@@ -21,9 +21,9 @@ const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
     <button >
         <Link to='/create'>Create Game</Link>
     </button>
-    {/* <button >
+    <button >
         <Link to='/join'>Join Game</Link>
-    </button> */}
+    </button>
     <button >
         <Link to='/leaderboard'>LeaderBoard</Link>
     </button>
