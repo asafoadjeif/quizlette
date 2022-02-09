@@ -2,11 +2,14 @@ import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Routes, Route, Link, Outlet} from 'react-router-dom';
 
 
-const MainMenu = ({user, sendUser}) => {
+const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
 
-  useEffect( () => {
-    sendUser(user) 
-  }, [])
+
+
+  // useEffect( () => {
+  //   sendUser(user)
+  //   // sendTicket
+  // }, [] )
 
 
   return (
@@ -18,11 +21,11 @@ const MainMenu = ({user, sendUser}) => {
     <button >
         <Link to='/create'>Create Game</Link>
     </button>
+    {/* <button >
+        <Link to='/join'>Join Game</Link>
+    </button> */}
     <button >
-        <Link to='/create'>Join Game</Link>
-    </button>
-    <button >
-        <Link to='/create'>LeaderBoard</Link>
+        <Link to='/leaderboard'>LeaderBoard</Link>
     </button>
     <button >
         <Link to='/'>Quit</Link>

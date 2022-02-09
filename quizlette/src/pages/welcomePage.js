@@ -7,19 +7,34 @@ import axios from 'axios'
 
 
 
-const WelcomePage = ({ setUser, user, sendUser }) => {
+const WelcomePage = ({ setUser, user }) => {
 
 
-    const updateInput = (e) => setUser(e.target.value)
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   try{
-    //     sendUser(user) 
-    //   } catch(err){
-    //     console.log(err)
-    //   }   
-    // }
+    const updateInput = (e) => {
+      setUser(e.target.value)
+    }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      try{
+        sendUser(user) 
+      } catch(err){
+        console.log(err)
+      }   
+    }
 
+    const sendUser = async (user/* = {user}*/) => {
+    await axios
+      .post("http://localhost:8000/users", {
+        Name: user
+      })
+      .then(function () {
+        alert("User created successfully");
+        // window.location.reload();
+      })
+      .catch(function () {
+        alert("Could not create account. Please try again");
+      });
+  }
     return (
          <>
          <form /*onSubmit={handleSubmit}*/>
@@ -30,8 +45,8 @@ const WelcomePage = ({ setUser, user, sendUser }) => {
               variant="outlined"
               onChange={updateInput}
             />
-            <Button type="submit">
-            <Link className="menu-link" to="/main">Submit Name</Link>
+            <Button type="submit" onClick={handleSubmit}>
+              <Link className="menu-link" to="/main">Submit Name</Link>
             </Button>
           </div>
         </form>

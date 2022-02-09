@@ -7,14 +7,20 @@ import GameRoom from './pages/gameRoom'   ;
 import GameSummary from './pages/gameSummary';
 import MainMenu from './pages/mainMenu';
 import Welcome from './pages/welcomePage'
+import LeaderBoard from './pages/leaderBoard'
 
 
 function App() {
 
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
-  const [user, setUser] = useState ("Ami");
+  const [results, setResults] = useState([])
+  const [user, setUser] = useState ("");
+  const [id, setId] = useState ("");
+  const [ticket, setTicket] = useState('');
   
+  const randomTicket = Math.random()
+
   const fetchQuestions = async (category = "", difficulty = "") => {
         const { data } = await axios.get(
         `https://opentdb.com/api.php?amount=10${
@@ -26,19 +32,15 @@ function App() {
     };
 
 //  Server fetch requests = async etc...     
-  const sendUser = async (user/* = {user}*/) => {
-    await axios
-      .post("https://quizlette.herokuapp.com/users/", {
-        Name: user
-      })
-      .then(function () {
-        alert("User created successfully");
-        // window.location.reload();
-      })
-      .catch(function () {
-        alert("Could not create account. Please try again");
-      });
-  }
+  
+
+  const getScores = async () => {
+    const { data } = await axios.get(`https://quizlette.herokuapp.com/users`);
+    console.log(data)
+    setResults(data)
+  };
+
+  
 
 
   // const sendScore = async (user/* = {user}*/) => {
@@ -63,16 +65,14 @@ return (
         {/* <Route path="/menu"><MainMenu/></Route> */}
         {/* <Route path="/join"><RoomSelector/></Route> */}
         <Route path="/" element={<Welcome user={user} setUser={setUser} /*sendUser={sendUser}*/ />} ></Route>
-        <Route path="/main" element={<MainMenu user={user} setUser={setUser} sendUser={sendUser}/>}/>
+        <Route path="/main" element={<MainMenu user={user} setUser={setUser}/>}/>
         <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions}/>}></Route>
         <Route path="/game" element={<GameRoom user={user} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
         {/* <Route path="/lobby"><Lobby/></Route> */}
         <Route path="/summary" element={<GameSummary user={user} score={score}/>}></Route>
-        {/* <Route path="/leaderboard"><LeaderBoard/></Route> */}
-        
+        <Route path="/leaderboard" element={<LeaderBoard results={results} setResults={setResults} getScores={getScores}/>}></Route>
       </Routes>
   
-
   )
 }
 
