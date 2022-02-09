@@ -10,7 +10,9 @@ import axios from 'axios'
 const WelcomePage = ({ setUser, user, sendUser }) => {
 
 
-    const updateInput = (e) => setUser(e.target.value)
+    const updateInput = (e) => {
+      setUser(e.target.value)
+    }
     // const handleSubmit = (e) => {
     //   e.preventDefault();
     //   try{
@@ -31,7 +33,7 @@ const WelcomePage = ({ setUser, user, sendUser }) => {
               onChange={updateInput}
             />
             <Button type="submit">
-            <Link className="menu-link" to="/main">Submit Name</Link>
+              <Link className="menu-link" to="/main">Submit Name</Link>
             </Button>
           </div>
         </form>
