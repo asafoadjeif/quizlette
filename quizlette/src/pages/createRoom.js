@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import Categories from "../data/Categories";
 
-
 const CreateRoom = ({ user, fetchQuestions}) => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");

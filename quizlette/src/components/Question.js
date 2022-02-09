@@ -31,6 +31,7 @@ const Question = ({
   };
 
   const handleNext = () => {
+    
     if (currQues > 8) {
       navigate("/summary");
     } else if (selected) {

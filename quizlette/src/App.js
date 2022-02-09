@@ -1,17 +1,55 @@
 import './App.css';
 import { Switch, Route, Routes } from 'react-router-dom'; 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import CreateRoom from './pages/createRoom';
 import GameRoom from './pages/gameRoom'   ; 
 import GameSummary from './pages/gameSummary';
 import MainMenu from './pages/mainMenu';
-import Welcome from './pages/welcomePage'
-import LeaderBoard from './pages/leaderBoard'
+import Welcome from './pages/welcomePage';
+import LeaderBoard from './pages/leaderBoard';
+import io from 'socket.io-client';
+
 
 
 function App() {
 
+  // socket.on('joinGame', handleJoin);
+  // socket.on('createGame', handleCreate);
+  // socket.on('results', handleResults );
+
+  // const handleJoin = () => {
+
+  // }
+
+  // const handleCreate = () => {
+
+  // }
+
+  // const handleResutls = () => {
+
+  // }
+
+  // const newGame = () => {
+  //   socket.emit('newGame');
+  //   init();
+  // }
+
+  // const joinGame = () => {
+  //   const code = 
+  //   socket.emit('joinGame', code)
+  //   init();
+  // }
+
+  useEffect(() => {
+    // connect to socket io on conditions being met
+    const socket = io('http://localhost:8000');
+    socket.on()
+    return () => {
+      second
+    }
+  }, [third])
+  
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
   const [results, setResults] = useState([])
