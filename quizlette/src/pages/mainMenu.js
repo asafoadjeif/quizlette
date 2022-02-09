@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Routes, Route, Link, Outlet} from 'react-router-dom';
 
 
-const MainMenu = ({user}) => {
+const MainMenu = ({user, sendUser}) => {
+
+  useEffect( () => {
+    sendUser(user) 
+  }, [])
+
 
   return (
     <div>

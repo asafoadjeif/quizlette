@@ -1,12 +1,12 @@
 import react from "react"
 import { NavLink } from 'react-router-dom';
 import { Button, MenuItem, TextField } from "@material-ui/core";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import Categories from "../data/Categories";
 
 
-const CreateRoom = ({ fetchQuestions}) => {
+const CreateRoom = ({ user, fetchQuestions}) => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [error, setError] = useState(false);
@@ -27,15 +27,15 @@ const CreateRoom = ({ fetchQuestions}) => {
     return (
     <div className="content">
       <div className="settings">
+      <p>Hi {user}.......</p>
         <span style={{ fontSize: 30 }}>Quiz Settings</span>
         <div className="settings__select">
           {/* {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>} */}
-          <TextField
+          {/* <TextField
             style={{ marginBottom: 25 }}
             label="Enter Your Name"
             variant="outlined"
-            
-          />
+          /> */}
           <TextField
             select
             label="Select Category"

@@ -13,7 +13,7 @@ function App() {
 
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
-  const [user, setUser] = useState ("ami")
+  const [user, setUser] = useState ("Ami");
   
   const fetchQuestions = async (category = "", difficulty = "") => {
         const { data } = await axios.get(
@@ -26,9 +26,34 @@ function App() {
     };
 
 //  Server fetch requests = async etc...     
-  const sendUser = async (user = {user}) => {
-
+  const sendUser = async (user/* = {user}*/) => {
+    await axios
+      .post("https://quizlette.herokuapp.com/users/", {
+        Name: user
+      })
+      .then(function () {
+        alert("User created successfully");
+        // window.location.reload();
+      })
+      .catch(function () {
+        alert("Could not create account. Please try again");
+      });
   }
+
+
+  // const sendScore = async (user/* = {user}*/) => {
+  //   await axios
+  //     .patch(`https://quizlette.herokuapp.com/users/${}/points`, {
+  //       Points: score
+  //     })
+  //     .then(function () {
+  //       alert("Points successfully");
+  //       // window.location.reload();
+  //     })
+  //     .catch(function () {
+  //       alert("Could not create account. Please try again");
+  //     });
+  // }
 
 
 return (
@@ -37,8 +62,8 @@ return (
         {/* <Route exactpath="/"><Welcome/></Route> */}
         {/* <Route path="/menu"><MainMenu/></Route> */}
         {/* <Route path="/join"><RoomSelector/></Route> */}
-        <Route path="/" element={<Welcome user={user} setUser={setUser} sendUser={sendUser}/>} ></Route>
-        <Route path="/main" element={<MainMenu user={user} />}/>
+        <Route path="/" element={<Welcome user={user} setUser={setUser} /*sendUser={sendUser}*/ />} ></Route>
+        <Route path="/main" element={<MainMenu user={user} setUser={setUser} sendUser={sendUser}/>}/>
         <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions}/>}></Route>
         <Route path="/game" element={<GameRoom user={user} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
         {/* <Route path="/lobby"><Lobby/></Route> */}
