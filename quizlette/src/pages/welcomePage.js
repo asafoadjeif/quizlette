@@ -6,7 +6,11 @@ import axios from 'axios'
 import NameInput from "../components/NameInput";
 
 
-const WelcomePage = ({ user }) => {
+const WelcomePage = ({ user, setUser }) => {
+    
+    const updateInput = (e) => {
+      setUser(e.target.value)
+    }
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -60,7 +64,7 @@ const WelcomePage = ({ user }) => {
             </Select>
             </FormControl>
             <div>
-            {players.map((player) => <NameInput/>)}
+            {players.map((player) => <NameInput onChange={updateInput}/>)}
             </div>
             <Button type="submit" onClick={handleSubmit}>
               <Link className="menu-link" to="/main">Play</Link>

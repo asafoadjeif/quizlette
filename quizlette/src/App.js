@@ -47,7 +47,7 @@ return (
         {/* <Route exactpath="/"><Welcome/></Route> */}
         {/* <Route path="/menu"><MainMenu/></Route> */}
         {/* <Route path="/join"><RoomSelector/></Route> */}
-        <Route path="/" element={<Welcome user={user} setUser={setUser} /*sendUser={sendUser}*/ />} ></Route>
+        <Route path="/" element={<Welcome user={user} setUser={setUser}/*sendUser={sendUser}*/ />} ></Route>
         <Route path="/main" element={<MainMenu user={user} setUser={setUser}/>}/>
         <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions}/>}></Route>
         <Route path="/game" element={<GameRoom user={user} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
