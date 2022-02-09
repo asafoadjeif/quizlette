@@ -6,10 +6,10 @@ const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
 
 
 
-  useEffect( () => {
-    sendUser(user)
-    // sendTicket
-  }, [] )
+  // useEffect( () => {
+  //   sendUser(user)
+  //   // sendTicket
+  // }, [] )
 
 
   return (
