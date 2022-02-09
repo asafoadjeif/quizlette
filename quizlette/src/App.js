@@ -55,7 +55,7 @@ function App() {
 
   const joinGame = () => {
     const code = gameCode;
-    socket.emit('joinGame', code)
+    socket.emit('joinGame', {code})
     init();
   }
 
@@ -132,7 +132,7 @@ return (
         <Route path="/join" element={<JoinPage gameCode={gameCode} setGameCode={setGameCode} joinGame={joinGame}/>}></Route>
         <Route path="/" element={<Welcome user={user} setUser={setUser} /*sendUser={sendUser}*/ />} ></Route>
         <Route path="/main" element={<MainMenu user={user} setUser={setUser}/>}/>
-        <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions}/>}></Route>
+        <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions} newGame={newGame}/>}></Route>
         <Route path="/game" element={<GameRoom user={user} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
         {/* <Route path="/lobby"><Lobby/></Route> */}
         <Route path="/summary" element={<GameSummary user={user} score={score}/>}></Route>
