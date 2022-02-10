@@ -86,11 +86,11 @@ const Question = ({
 
   return (
     <div className="question">
-      <h1>Question {currQues + 1}:</h1>
-      <h2>player {localStorage.getItem(`playerName${currPlay}`)}'s turn</h2>
+      <h1 className="questionss">Question {currQues + 1}:</h1>
+      <h2 className="questions">player {localStorage.getItem(`playerName${currPlay}`)}'s turn</h2>
 
       <div className="singleQuestion">
-        <h2>{he.decode(questions[currQues].question)}</h2>
+        <h2 className="questions">{he.decode(questions[currQues].question)}</h2>
         <div className="options">
           {/* {error && <ErrorMessage>{error}</ErrorMessage>} */}
           {options &&

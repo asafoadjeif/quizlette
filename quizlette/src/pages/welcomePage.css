@@ -33,7 +33,7 @@ body{
         border-radius: 4px;
         box-sizing: border-box;
         animation: 0.5s ease 0s 1 normal none running kAMtBn;
-        padding-inline-end: 1.875rem;
+        padding: 20px 0 20px ;
     
 }
 .button{  
@@ -122,6 +122,7 @@ body{
         min-height: 48px;
         padding: 0px 16px 4px;
         position: relative; 
+        
 
   
 }
@@ -176,10 +177,10 @@ body{
 .select{
     width: 200px;
     text-align: center;
-    background-color: white;
 }
 .category{
     outline: white;
+    
 }
 
 .subtitle{
@@ -236,14 +237,44 @@ body{
 }
 .table{
     font-family: 'Concert One', cursive;
-    color: white;
+    color: lightblue;
     text-align: center;
     font-size: 15px;
     text-align: center;
-
+    padding: 20px;
+}
+.table1 {
+        font-family: 'Concert One', cursive;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 20px;
+        text-align: center;
+        padding: 20px;
+    
 
 }
 .button1{
     background-color: aliceblue;
     
+
+}
+
+.questions{
+
+    font-family: 'Concert One', cursive;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+.questionss{
+
+    font-family: 'Concert One', cursive;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+
+.board{
+    padding: 20px;
 }

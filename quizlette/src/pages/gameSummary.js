@@ -43,15 +43,15 @@ const Result = () => {
       <span className="title">Final Score : </span>
       <table >
                 <thead>
-                    <tr>
-                        <th className="table">#</th>
-                        <th className="table">Username</th>
-                        <th className="table">Points</th>
+                    <tr className="table">
+                        <th className="table1"># </th>
+                        <th className="table1">Username </th>
+                        <th className="table1">Points </th>
                     </tr>
                 </thead>
                 <tbody>
                 {isFetched == true ? playersSum.map((row, index) => (
-                  <tr key={row.name + index}>
+                  <tr className="table" key={row.name + index}>
                   <td className="table">{index+1}</td>
                   <td className="table">{row.name}</td>
                   <td className="table">{row.points}</td>

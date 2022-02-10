@@ -38,7 +38,7 @@ const Quiz = ({ user, questions, score, setScore, setQuestions }) => {
               Score : {score}
             </span>
           </div>
-          <Question
+          <Question 
             currQues={currQues}
             setCurrQues={setCurrQues}
             questions={questions}
