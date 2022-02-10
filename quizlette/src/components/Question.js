@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 
 const Question = ({
@@ -17,6 +18,7 @@ const Question = ({
   const [error, setError] = useState(false);
   const [currPlay, setCurrPlay] = useState(1);
   const [currentPlayer, setCurrentPlayer] = useState(localStorage.getItem("player1"))
+  const [currentPlayerName, setCurrentPlayerName] = useState(localStorage.getItem("playerName1"))
 
   let numOfPlayers = localStorage.getItem("players")
  
@@ -28,10 +30,14 @@ const Question = ({
     else if (i === correct) return "select";
   };
 
-  const handleCheck = (i) => {
+  const handleCheck = async(i) => {
     setSelected(i);
-    if (i === correct) setScore(score + 1);
-    setError(false);
+    if (i === correct) {
+      console.log(localStorage.getItem(`player${currPlay}`))
+      let data = await axios.patch(`http://localhost:8000/users/${localStorage.getItem(`player${currPlay}`)}/points`);
+    } else {
+      setError(false);
+    }
   };
 
   // 
@@ -57,15 +63,17 @@ const Question = ({
         setSelected()
         console.log(currPlay)
         await rotatePlayer()      
-      }
-      
+      }  
   }
 
   // change current player when it's their turn
   const rotatePlayer = () => {
-     let gamer =  localStorage.getItem(`player${currPlay}`)
-     setCurrentPlayer(gamer)
-     console.log(gamer)
+     let gamerId = localStorage.getItem(`player${currPlay}`)
+     let gamerName = localStorage.getItem(`playerName${currPlay}`)
+     setCurrentPlayer(gamerId)
+     setCurrentPlayerName(gamerName)
+    //  console.log(gamerName)
+    //  console.log(gamerId)
   }
 
 
@@ -77,7 +85,7 @@ const Question = ({
   return (
     <div className="question">
       <h1>Question {currQues + 1}:</h1>
-      <h2>player {localStorage.getItem(`player${currPlay}`)}'s turn</h2>
+      <h2>player {localStorage.getItem(`playerName${currPlay}`)}'s turn</h2>
 
       <div className="singleQuestion">
         <h2>{questions[currQues].question}</h2>

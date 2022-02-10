@@ -34,6 +34,7 @@ const WelcomePage = () => {
           let playerName =  e.target[playerNum+playerNum+1].value
           let result = await sendUsers(playerName)
           localStorage.setItem(`player${playerNum+1}`, result.data.id)
+          localStorage.setItem(`playerName${playerNum+1}`, result.data.name)
           console.log(result)
           console.log(playerName)
         }
