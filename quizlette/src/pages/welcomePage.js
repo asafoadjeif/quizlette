@@ -19,21 +19,25 @@ const WelcomePage = () => {
         await setGamersArray([])
         await playersArray.push(result.data.id)
         await setGamersArray(playersArray)
+        return result
       } catch (err){
         console.log(err)
       }
     }
     console.log(gamersArray)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       try{
         for(let player in players) {
           let playerNum = parseInt(player)
           let playerName =  e.target[playerNum+playerNum+1].value
-          sendUsers(playerName)
+          let result = await sendUsers(playerName)
+          localStorage.setItem(`player${playerNum+1}`, result.data.id)
+          console.log(result)
           console.log(playerName)
         }
+        localStorage.setItem(`players` , players.length)
       } catch(err){
         console.log(err)
       }   
