@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useHistory, Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import NameInput from "../components/NameInput";
-
-
+import './welcomePage.css';
+import Logo from './Logo.png';
 const WelcomePage = ({ user, setUser }) => {
     
     const updateInput = (e) => {
@@ -45,11 +45,15 @@ const WelcomePage = ({ user, setUser }) => {
       }
 
     return (
-         <>
-         <form>
+      <div className="welcomeroot">
+         <div className="box">
+           <div className="logo">
+              <img src={Logo} alt="logo" />
+           </div>
+         <form className="container">
           <div className="settings__select">
             <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Number of Players</InputLabel>
+            <InputLabel className="inputbox" id="demo-simple-select-label">Number of Players</InputLabel>
             <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -66,12 +70,13 @@ const WelcomePage = ({ user, setUser }) => {
             <div>
             {players.map((player) => <NameInput onChange={updateInput}/>)}
             </div>
-            <Button type="submit" onClick={handleSubmit}>
+            <Button className="button" type="submit" onClick={handleSubmit}>
               <Link className="menu-link" to="/main">Play</Link>
             </Button>
           </div>
         </form>
-        </>
+        </div>
+      </div>
     );
 }
 
