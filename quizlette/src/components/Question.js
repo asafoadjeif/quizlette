@@ -2,6 +2,8 @@ import { Button } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
+import he from "he"
+import "./Question.css";
 
 
 const Question = ({
@@ -88,7 +90,7 @@ const Question = ({
       <h2>player {localStorage.getItem(`playerName${currPlay}`)}'s turn</h2>
 
       <div className="singleQuestion">
-        <h2>{questions[currQues].question}</h2>
+        <h2>{he.decode(questions[currQues].question)}</h2>
         <div className="options">
           {/* {error && <ErrorMessage>{error}</ErrorMessage>} */}
           {options &&
@@ -99,7 +101,7 @@ const Question = ({
                 onClick={() => handleCheck(i)}
                 disabled={selected}
               >
-                {i}
+                {he.decode(i)}
               </button>
             ))}
         </div>

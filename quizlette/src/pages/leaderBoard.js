@@ -18,7 +18,7 @@ const LeaderBoard = ({ getScores, results, setResults }) => {
     
     return (
         <>
-        <h1>LeaderBoard</h1>
+        <h1 className="h7">LeaderBoard</h1>
             <TableContainer component={Paper} >
                 <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                     <TableHead>

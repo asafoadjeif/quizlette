@@ -78,7 +78,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
           </TextField>
           </div>
           <div className="divider1"></div>
-          <Button className="button" onClick={handleSubmit}> Start Quiz </Button>
+          <Button className="button11" onClick={handleSubmit}> Start Quiz </Button>
         </div>
         </div>
       </div>

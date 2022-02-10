@@ -39,27 +39,27 @@ const Result = () => {
 
 
   return (
-    <div className="result">
+    <div className="result container1">
       <span className="title">Final Score : </span>
       <table >
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Username</th>
-                        <th>Points</th>
+                        <th className="table">#</th>
+                        <th className="table">Username</th>
+                        <th className="table">Points</th>
                     </tr>
                 </thead>
                 <tbody>
                 {isFetched == true ? playersSum.map((row, index) => (
                   <tr key={row.name + index}>
-                  <td>{index+1}</td>
-                  <td>{row.name}</td>
-                  <td>{row.points}</td>
+                  <td className="table">{index+1}</td>
+                  <td className="table">{row.name}</td>
+                  <td className="table">{row.points}</td>
         </tr>
       )) : null}  
                 </tbody>
             </table>
-      <Button onClick={handleWins}
+      <Button className="button1" onClick={handleWins}
         variant="contained"
         color="secondary"
         size="large"
