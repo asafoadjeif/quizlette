@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -15,9 +15,11 @@ const Question = ({
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
-  const [currPlay, setCurrPlay] = useState(0);
-  let numOfPlayers = localStorage.getItem("players")
+  const [currPlay, setCurrPlay] = useState(1);
+  const [currentPlayer, setCurrentPlayer] = useState(localStorage.getItem("player1"))
 
+  let numOfPlayers = localStorage.getItem("players")
+ 
   const navigate = useNavigate();
 
   const handleSelect = (i) => {
@@ -32,7 +34,7 @@ const Question = ({
     setError(false);
   };
 
-  // loop???
+  // 
   const handleNextQuestion = () => {
     if (currQues > 8) {
       navigate("/summary");
@@ -43,16 +45,29 @@ const Question = ({
   };
 
   // waits for each players turn
-  const handleNextPlayer = () => {
-      if(currPlay >= numOfPlayers-1) {
+  const  handleNextPlayer = async () => {
+      if(currPlay >= numOfPlayers) {
         handleNextQuestion()
-        setCurrPlay(0)
+        console.log(currPlay)
+        setCurrPlay(1)
+        await rotatePlayer() 
       }else {
-        setCurrPlay(curPlay => curPlay + 1)
+        setCurrPlay(currPlay => currPlay +1)
         setCurrQues(currQues)
         setSelected()
+        console.log(currPlay)
+        await rotatePlayer()      
       }
+      
   }
+
+  // change current player when it's their turn
+  const rotatePlayer = () => {
+     let gamer =  localStorage.getItem(`player${currPlay}`)
+     setCurrentPlayer(gamer)
+     console.log(gamer)
+  }
+
 
   const handleQuit = () => {
     setCurrQues(0);
@@ -61,7 +76,8 @@ const Question = ({
 
   return (
     <div className="question">
-      <h1>Question {currQues + 1} :</h1>
+      <h1>Question {currQues + 1}:</h1>
+      <h2>player {localStorage.getItem(`player${currPlay}`)}'s turn</h2>
 
       <div className="singleQuestion">
         <h2>{questions[currQues].question}</h2>

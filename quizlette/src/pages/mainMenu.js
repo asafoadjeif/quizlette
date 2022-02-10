@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route, Link, Outlet} from 'react-router-dom';
 
 const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
 
-  let player1 = localStorage.getItem("player1")
-  let player2 = localStorage.getItem("player2")
+  // let player1 = localStorage.getItem("player1")
+  // let player2 = localStorage.getItem("player2")
   let numOfPlayers = localStorage.getItem("players")
   console.log(numOfPlayers)
   return (
