@@ -27,8 +27,9 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     return (
     <div className="content">
       <div className="settings">
-      <p>Hi {user}.......</p>
-        <span style={{ fontSize: 30 }}>Quiz Settings</span>
+      <p className="p">Hi {user}</p>
+      <div className="container3">
+        <span className="h2" style={{ fontSize: 30 }}>Quiz Settings</span>
         <div className="settings__select">
           {/* {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>} */}
           {/* <TextField
@@ -36,7 +37,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             label="Enter Your Name"
             variant="outlined"
           /> */}
-          <TextField
+          <div className="category">
+          <TextField className="select"
             select
             label="Select Category"
             value={category}
@@ -49,8 +51,11 @@ const CreateRoom = ({ user, fetchQuestions}) => {
                 {cat.category}
               </MenuItem>
             ))}
-          </TextField>
-          <TextField
+          </TextField >
+          </div>
+          <div className="divider1"/>
+          <div className="difficulty">
+          <TextField className="select"
             select
             label="Select Difficulty"
             value={difficulty}
@@ -68,6 +73,9 @@ const CreateRoom = ({ user, fetchQuestions}) => {
               Hard
             </MenuItem>
           </TextField>
+          </div>
+          <div className="divider1"></div>
+
           <Button
             variant="contained"
             color="primary"
@@ -78,8 +86,9 @@ const CreateRoom = ({ user, fetchQuestions}) => {
           </Button>
         </div>
       </div>
-      <img src="/quiz.svg" className="banner" alt="quiz app" />
+      {/* <img src="/quiz.svg" className="banner" alt="quiz app" /> */}
       <Outlet />
+    </div>
     </div>
   );
 };

@@ -1,18 +1,17 @@
 import react, { useEffect } from "react"
-import { Button, MenuItem, TextField } from "@material-ui/core";
+import { Button, MenuItem, TextField, FormControl, InputLabel, Select, Menu } from "@material-ui/core";
 import { useState } from "react";
 import { useHistory, Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
-
-
-
-
-const WelcomePage = ({ setUser, user }) => {
-
-
+import NameInput from "../components/NameInput";
+import './welcomePage.css';
+import Logo from './Logo.png';
+const WelcomePage = ({ user, setUser }) => {
+    
     const updateInput = (e) => {
       setUser(e.target.value)
     }
+
     const handleSubmit = (e) => {
       e.preventDefault();
       try{
@@ -22,35 +21,62 @@ const WelcomePage = ({ setUser, user }) => {
       }   
     }
 
-    const sendUser = async (user/* = {user}*/) => {
-    await axios
-      .post("http://localhost:8000/users", {
-        Name: user
-      })
-      .then(function () {
-        alert("User created successfully");
-        // window.location.reload();
-      })
-      .catch(function () {
-        alert("Could not create account. Please try again");
-      });
-  }
+    const sendUser = async(user) => {
+      try {
+        let result = await axios.post("http://localhost:8000/users", {
+          Name: user
+        })
+        console.log(result)
+      } catch (err){
+        console.log(err)
+      }
+    }
+
+      const [players, setPlayers] = useState([]);
+
+      const handleChange = (e) => {
+        setPlayers([])
+        let playersArr= []
+        let count = e.target.value
+        for(let i = 0; i < count ; i++){
+          playersArr.push(i)
+        };
+        setPlayers(playersArr)
+      }
+
     return (
-         <>
-         <form /*onSubmit={handleSubmit}*/>
+      <div className="welcomeroot">
+         <div className="box">
+           <div className="logo">
+              <img src={Logo} alt="logo" />
+           </div>
+         <form className="container">
           <div className="settings__select">
-            <TextField
-              style={{ marginBottom: 25 }}
-              label="Enter Your Name"
-              variant="outlined"
-              onChange={updateInput}
-            />
-            <Button type="submit" onClick={handleSubmit}>
-              <Link className="menu-link" to="/main">Submit Name</Link>
+            <FormControl fullWidth>
+            <InputLabel className="inputbox" id="demo-simple-select-label">Number of Players</InputLabel>
+            <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={players}
+            label="Age"
+            onChange={handleChange}
+            >
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+            </Select>
+            </FormControl>
+            <div>
+            {players.map((player) => <NameInput onChange={updateInput}/>)}
+            </div>
+            <Button className="button" type="submit" onClick={handleSubmit}>
+              <Link className="menu-link" to="/main">Play</Link>
             </Button>
           </div>
         </form>
-        </>
+        </div>
+      </div>
     );
 }
 
