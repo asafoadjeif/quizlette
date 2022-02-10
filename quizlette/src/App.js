@@ -36,7 +36,9 @@ function App() {
 
   const getScores = async () => {
     const { data } = await axios.get(`https://quizlette.herokuapp.com/users`);
-    console.log(data)
+    data.sort(function(a,b) {
+      return b.Wins - a.Wins
+    })
     setResults(data)
   };
 

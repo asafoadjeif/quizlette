@@ -1,4 +1,4 @@
-import react from "react"
+import react, { useEffect } from "react"
 import { NavLink, useHistory } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,8 +11,10 @@ import axios from 'axios'
 
 const LeaderBoard = ({ getScores, results, setResults }) => {
 
-    getScores()
-    console.log(results)
+    useEffect(() => {
+        getScores()
+    }, []);
+    
     
     return (
         <>
@@ -22,12 +24,12 @@ const LeaderBoard = ({ getScores, results, setResults }) => {
                     <TableHead>
                     <TableRow>
                         <TableCell align="left">Name</TableCell>
-                        <TableCell align="right">Points</TableCell>
+                        <TableCell align="right">Wins</TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>
                     {results.map( (result) => {
-                        const { Name, Points } = result
+                        const { Name, Wins } = result
                         return (
                             <TableRow
                             key={Name}
@@ -37,7 +39,7 @@ const LeaderBoard = ({ getScores, results, setResults }) => {
                                 {Name}
                             </TableCell> */}
                             <TableCell align="left">{Name}</TableCell>
-                            <TableCell align="right">{Points}</TableCell>
+                            <TableCell align="right">{Wins}</TableCell>
                             </TableRow>
                         )
                     })}
