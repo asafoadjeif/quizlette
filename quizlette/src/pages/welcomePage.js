@@ -63,7 +63,7 @@ const WelcomePage = () => {
               <div className="logo">
                 <img src={Logo} alt="logo" />
             </div>
-          <form className="container">
+         
             <div className="settings__select"></div>  
          <form onSubmit={handleSubmit}>
           <div className="settings__select">
@@ -89,7 +89,7 @@ const WelcomePage = () => {
           </div>
         </form>
         <Button><Link className="menu-link" to="/main">Play</Link></Button>
-        </form>
+        
         </div>
     </div>
     );
