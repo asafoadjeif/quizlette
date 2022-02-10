@@ -12,7 +12,7 @@ const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
     <div>
 
 
-    <p>Bonjour {user}!</p>
+    <p> {numOfPlayers} player(s) are in this lobby!</p>
    
     <button >
         <Link to='/create'>Create Game</Link>

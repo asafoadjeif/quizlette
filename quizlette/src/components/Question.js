@@ -15,6 +15,8 @@ const Question = ({
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
+  const [currPlay, setCurrPlay] = useState(0);
+  let numOfPlayers = localStorage.getItem("players")
 
   const navigate = useNavigate();
 
@@ -30,7 +32,8 @@ const Question = ({
     setError(false);
   };
 
-  const handleNext = () => {
+  // loop???
+  const handleNextQuestion = () => {
     if (currQues > 8) {
       navigate("/summary");
     } else if (selected) {
@@ -38,6 +41,18 @@ const Question = ({
       setSelected();
     } else setError("Please select an option first");
   };
+
+  // waits for each players turn
+  const handleNextPlayer = () => {
+      if(currPlay >= numOfPlayers-1) {
+        handleNextQuestion()
+        setCurrPlay(0)
+      }else {
+        setCurrPlay(curPlay => curPlay + 1)
+        setCurrQues(currQues)
+        setSelected()
+      }
+  }
 
   const handleQuit = () => {
     setCurrQues(0);
@@ -80,7 +95,7 @@ const Question = ({
             color="primary"
             size="large"
             style={{ width: 185 }}
-            onClick={handleNext}
+            onClick={handleNextPlayer}
           >
             {currQues > 20 ? "Submit" : "Next Question"}
           </Button>

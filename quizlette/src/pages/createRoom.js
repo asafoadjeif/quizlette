@@ -27,7 +27,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     return (
     <div className="content">
       <div className="settings">
-      <p>Hi {user}.......</p>
+      <p>Hi, choose the quiz settings</p>
         <span style={{ fontSize: 30 }}>Quiz Settings</span>
         <div className="settings__select">
           {/* {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>} */}
