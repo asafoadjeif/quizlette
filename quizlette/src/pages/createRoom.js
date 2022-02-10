@@ -4,6 +4,7 @@ import { Button, MenuItem, TextField } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import Categories from "../data/Categories";
+import './welcomePage.css';
 
 
 const CreateRoom = ({ user, fetchQuestions}) => {
@@ -27,8 +28,11 @@ const CreateRoom = ({ user, fetchQuestions}) => {
     return (
     <div className="content">
       <div className="settings">
-      <p>Hi, choose the quiz settings</p>
-        <span style={{ fontSize: 30 }}>Quiz Settings</span>
+      <p className="p">Hi, choose the quiz settings</p>
+      <div className="container3">
+        <span className="p1" style={{ fontSize: 30 }}>Quiz Settings</span>
+        <div className="divider"/>
+
         <div className="settings__select">
           {/* {error && <ErrorMessage>Please Fill all the feilds</ErrorMessage>} */}
           {/* <TextField
@@ -36,7 +40,8 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             label="Enter Your Name"
             variant="outlined"
           /> */}
-          <TextField
+          <div className="category">
+          <TextField className="select"
             select
             label="Select Category"
             value={category}
@@ -50,7 +55,10 @@ const CreateRoom = ({ user, fetchQuestions}) => {
               </MenuItem>
             ))}
           </TextField>
-          <TextField
+          </div>
+          <div className="divider1"/>
+          <div className="difficulty">
+          <TextField className="select"
             select
             label="Select Difficulty"
             value={difficulty}
@@ -68,17 +76,12 @@ const CreateRoom = ({ user, fetchQuestions}) => {
               Hard
             </MenuItem>
           </TextField>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            onClick={handleSubmit}
-          >
-            Start Quiz
-          </Button>
+          </div>
+          <div className="divider1"></div>
+          <Button className="button" onClick={handleSubmit}> Start Quiz </Button>
+        </div>
         </div>
       </div>
-      <img src="/quiz.svg" className="banner" alt="quiz app" />
       <Outlet />
     </div>
   );

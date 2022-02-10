@@ -4,6 +4,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import NameInput from "../components/NameInput";
+import './welcomePage.css';
+import Logo from './Logo.png';
+
 
 const WelcomePage = () => {
     
@@ -55,11 +58,17 @@ const WelcomePage = () => {
       }
 
     return (
-         <>
+        <div className="welcomeroot">
+            <div className="box">
+              <div className="logo">
+                <img src={Logo} alt="logo" />
+            </div>
+          <form className="container">
+            <div className="settings__select"></div>  
          <form onSubmit={handleSubmit}>
           <div className="settings__select">
             <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Number of Players</InputLabel>
+            <InputLabel className="inputbox" id="demo-simple-select-label">Number of Players</InputLabel>
             <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -76,13 +85,14 @@ const WelcomePage = () => {
             <div >
             {players.map((player) => <NameInput/>)}
             </div>
-            <Button type="submit">Add Players  
-            </Button>
+            <Button className="button" type="submit">Add Players</Button>             
           </div>
         </form>
         <Button><Link className="menu-link" to="/main">Play</Link></Button>
-        </>
+        </form>
+        </div>
+    </div>
     );
-}
+    }
 
 export default WelcomePage

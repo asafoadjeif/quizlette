@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Pacifico&display=swap');
+
+body{
+    background-color: #3351db;
+}
+/* welcomepage */
+.container {
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px;
+    max-width: 320px;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    position: relative;
+    vertical-align: middle;
+
+}
+
+.inputbox{
+        min-height: 2.375rem;
+        max-height: 48px;
+        line-height: 2.375rem;
+        text-align: center;
+        max-width: 20rem;
+        min-width: 6.25rem;
+        color: rgb(51, 51, 51);
+        outline: none;
+        font-size: 1rem;
+        border-radius: 4px;
+        box-sizing: border-box;
+        animation: 0.5s ease 0s 1 normal none running kAMtBn;
+        padding-inline-end: 1.875rem;
+    
+}
+.button{  
+        width: 100%;
+        margin: 0px;
+        border: 0px;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: bottom;
+        box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
+        background: rgb(51, 51, 51);
+        color: rgb(255, 255, 255);
+        border-radius: 4px;
+        font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 0.875rem;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        min-width: 48px;
+        min-height: 48px;
+        padding: 0px 16px 4px;
+        position: relative;
+}
+.box{
+    max-width: 320px;
+    margin: auto;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.logo{
+    width: 200px;
+    margin: auto;
+    align-items: center;
+    vertical-align: middle;
+}
+
+
+    /* mainmenu */
+
+.divider{
+    width:3546px;
+    height:auto;
+    display:inline-block;
+}
+
+.container1 {
+    background-color: #3351db;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px;
+    max-width: 200px;
+    margin-left: 50%;
+    margin-top: 20%;
+}
+.button{
+    background-color: white;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+.bonjour{
+    font-family: 'Concert One', cursive;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+.welcomeroot{
+    height: 100vh;
+    display: flex;
+}
+
+/* create room page */
+
+.p{
+    font-family: 'Concert One', cursive;
+    font-size: 30px;
+    color: white;
+    text-align: left;
+}
+
+.container3{
+    background-color: #3351db;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px;
+    max-width: 400px;
+    margin-left: 50%;
+    margin-top: 20%;
+}
+
+.h2{
+    font-family: 'Concert One', cursive;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding-left: 80px;
+
+}
+.select{
+    width: 200px;
+    text-align: center;
+}
