@@ -1,38 +1,43 @@
 import react, { useEffect } from "react"
 import { Button, MenuItem, TextField, FormControl, InputLabel, Select, Menu } from "@material-ui/core";
 import { useState } from "react";
-import { useHistory, Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios'
 import NameInput from "../components/NameInput";
 
-
-const WelcomePage = ({ user, setUser }) => {
+const WelcomePage = () => {
     
-    const updateInput = (e) => {
-      setUser(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      try{
-        sendUser(user) 
-      } catch(err){
-        console.log(err)
-      }   
-    }
-
-    const sendUser = async(user) => {
+    const [players, setPlayers] = useState([]);
+    const [gamersArray, setGamersArray] = useState([])
+    let playersArray = []
+   
+    const sendUsers = async(users) => {
       try {
         let result = await axios.post("http://localhost:8000/users", {
-          Name: user
+          Name: users
         })
-        console.log(result)
+        await setGamersArray([])
+        await playersArray.push(result.data.id)
+        await setGamersArray(playersArray)
       } catch (err){
         console.log(err)
       }
     }
+    console.log(gamersArray)
 
-      const [players, setPlayers] = useState([]);
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      try{
+        for(let player in players) {
+          let playerNum = parseInt(player)
+          let playerName =  e.target[playerNum+playerNum+1].value
+          sendUsers(playerName)
+          console.log(playerName)
+        }
+      } catch(err){
+        console.log(err)
+      }   
+    }
 
       const handleChange = (e) => {
         setPlayers([])
@@ -46,7 +51,7 @@ const WelcomePage = ({ user, setUser }) => {
 
     return (
          <>
-         <form>
+         <form onSubmit={handleSubmit}>
           <div className="settings__select">
             <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Number of Players</InputLabel>
@@ -63,14 +68,14 @@ const WelcomePage = ({ user, setUser }) => {
               <MenuItem value={4}>4</MenuItem>
             </Select>
             </FormControl>
-            <div>
-            {players.map((player) => <NameInput onChange={updateInput}/>)}
+            <div >
+            {players.map((player) => <NameInput/>)}
             </div>
-            <Button type="submit" onClick={handleSubmit}>
-              <Link className="menu-link" to="/main">Play</Link>
+            <Button type="submit">Add Players  
             </Button>
           </div>
         </form>
+        <Button><Link className="menu-link" to="/main">Play</Link></Button>
         </>
     );
 }

@@ -15,7 +15,7 @@ function App() {
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
   const [results, setResults] = useState([])
-  const [user, setUser] = useState ("");
+  const [users, setUsers] = useState ([]);
   const [id, setId] = useState ("");
   const [ticket, setTicket] = useState('');
   
@@ -47,12 +47,12 @@ return (
         {/* <Route exactpath="/"><Welcome/></Route> */}
         {/* <Route path="/menu"><MainMenu/></Route> */}
         {/* <Route path="/join"><RoomSelector/></Route> */}
-        <Route path="/" element={<Welcome user={user} setUser={setUser}/*sendUser={sendUser}*/ />} ></Route>
-        <Route path="/main" element={<MainMenu user={user} setUser={setUser}/>}/>
-        <Route path="/create" element={<CreateRoom user={user} fetchQuestions={fetchQuestions}/>}></Route>
-        <Route path="/game" element={<GameRoom user={user} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
+        <Route path="/" element={<Welcome users={users} setUsers={setUsers}/*sendUser={sendUser}*/ />} ></Route>
+        <Route path="/main" element={<MainMenu users={users} setUsers={setUsers}/>}/>
+        <Route path="/create" element={<CreateRoom users={users} fetchQuestions={fetchQuestions}/>}></Route>
+        <Route path="/game" element={<GameRoom users={users} questions={questions} setQuestions={setQuestions} score={score} setScore={setScore}/>}></Route>
         {/* <Route path="/lobby"><Lobby/></Route> */}
-        <Route path="/summary" element={<GameSummary user={user} score={score}/>}></Route>
+        <Route path="/summary" element={<GameSummary users={users} score={score}/>}></Route>
         <Route path="/leaderboard" element={<LeaderBoard results={results} setResults={setResults} getScores={getScores}/>}></Route>
       </Routes>
   
