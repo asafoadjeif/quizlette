@@ -14,12 +14,14 @@ const Result = () => {
   }, []);
 
   let numOfPlayers = localStorage.getItem("players")
+
+
   const getSummary = async() => {
     let playersSumArr = []
     for (let i = 1 ; i <= numOfPlayers; i++) {
       console.log(i)
       let result = await axios.get(`http://localhost:8000/users/${localStorage.getItem(`player${[i]}`)}`)
-      let obj = {"name": result.data.Name, "points" : result.data.Points }
+      let obj = {"name": result.data.Name, "points" : result.data.Points, "id": result.data._id }
       playersSumArr.push(obj)
     }
     playersSumArr.sort(function(a,b) {
@@ -27,6 +29,12 @@ const Result = () => {
     })
     setPlayersSum(playersSumArr)
     setisFetched(true)
+  }
+
+  const handleWins = async() => {
+    console.log("hi")
+    let data = await axios.patch(`http://localhost:8000/users/${playersSum[0].id}/wins`)
+    let data2 = await axios.patch(`http://localhost:8000/users/points/reset`)
   }
 
 
@@ -51,14 +59,14 @@ const Result = () => {
       )) : null}  
                 </tbody>
             </table>
-      <Button 
+      <Button onClick={handleWins}
         variant="contained"
         color="secondary"
         size="large"
         // style={{ alignSelf: "center", marginTop: 20 }}
         // href="/"
       >
-       <Link to="/">Back to main</Link>
+       <Link  to="/main">Back to main</Link>
       </Button>
     </div>
   );
