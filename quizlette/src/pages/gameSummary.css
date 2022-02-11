@@ -1,0 +1,21 @@
+.button1 {
+    text-decoration: none;
+ 
+}
+
+.linktomain {
+    text-decoration: none;
+    color: #3351db;
+    font-weight: bold;
+    
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.titleDiv {
+    display: flex;
+    justify-content: center;
+}

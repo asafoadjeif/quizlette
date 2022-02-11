@@ -17,7 +17,7 @@ const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
     <div className="container1">
 
     <button className="button">
-        <Link to='/create'>Create Game</Link>
+        <Link class="randomstyleLink" to='/create'>Create Game</Link>
     </button>
     <div className="divider"></div>
     <br/>
@@ -25,12 +25,12 @@ const MainMenu = ({user, sendUser, setTicket, sendTicket}) => {
         <Link to='/join'>Join Game</Link>
     </button> */}
     <button className="button">
-        <Link to='/leaderboard'>LeaderBoard</Link>
+        <Link class="randomstyleLink" to='/leaderboard'>LeaderBoard</Link>
     </button>
     <br/>
     <div className="divider"/>
     <button className="button">
-        <Link to='/'>Quit</Link>
+        <Link class="randomstyleLink" to='/'>Quit</Link>
     </button>
 
 

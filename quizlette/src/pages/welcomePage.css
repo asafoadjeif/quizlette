@@ -278,3 +278,9 @@ body{
 .board{
     padding: 20px;
 }
+
+.randomstyleLink {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}

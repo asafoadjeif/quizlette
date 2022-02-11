@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import { useEffect,useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import './gameSummary.css'
 
 
 const Result = () => {
@@ -40,7 +41,10 @@ const Result = () => {
 
   return (
     <div className="result container1">
-      <span className="title">Final Score : </span>
+      <div class="titleDiv">
+        <span className="title">Final Score : </span>
+      </div>
+      
       <table >
                 <thead>
                     <tr className="table">
@@ -58,16 +62,18 @@ const Result = () => {
         </tr>
       )) : null}  
                 </tbody>
-            </table>
+      </table>
+      <div class="buttonDiv"> 
       <Button className="button1" onClick={handleWins}
         variant="contained"
-        color="secondary"
+        color="default"
         size="large"
-        // style={{ alignSelf: "center", marginTop: 20 }}
-        // href="/"
       >
-       <Link  to="/main">Back to main</Link>
+         <Link class="linktomain" to="/main">Back to main</Link>
       </Button>
+      </div>
+     
+      
     </div>
   );
 };
