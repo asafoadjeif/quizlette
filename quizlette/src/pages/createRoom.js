@@ -41,7 +41,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
             variant="outlined"
           /> */}
           <div className="category">
-          <TextField className="select"
+          <TextField id="helloWorld" className="select"
             select
             label="Select Category"
             value={category}
@@ -58,7 +58,7 @@ const CreateRoom = ({ user, fetchQuestions}) => {
           </div>
           <div className="divider1"/>
           <div className="difficulty">
-          <TextField className="select"
+          <TextField id="helloWorld" className="select"
             select
             label="Select Difficulty"
             value={difficulty}
