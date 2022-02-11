@@ -36,7 +36,7 @@ const Question = ({
     setSelected(i);
     if (i === correct) {
       console.log(localStorage.getItem(`player${currPlay}`))
-      let data = await axios.patch(`http://localhost:8000/users/${localStorage.getItem(`player${currPlay}`)}/points`);
+      let data = await axios.patch(`https://quizlette.herokuapp.com/users/${localStorage.getItem(`player${currPlay}`)}/points`);
     } else {
       setError(false);
     }

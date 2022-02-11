@@ -12,11 +12,12 @@ const WelcomePage = () => {
     
     const [players, setPlayers] = useState([]);
     const [gamersArray, setGamersArray] = useState([])
+    const [added, setAdded] = useState(false)
     let playersArray = []
    
     const sendUsers = async(users) => {
       try {
-        let result = await axios.post("http://localhost:8000/users", {
+        let result = await axios.post("https://quizlette.herokuapp.com/users", {
           Name: users
         })
         await setGamersArray([])
@@ -42,6 +43,8 @@ const WelcomePage = () => {
           console.log(playerName)
         }
         localStorage.setItem(`players` , players.length)
+        setAdded(true)
+
       } catch(err){
         console.log(err)
       }   
@@ -88,7 +91,7 @@ const WelcomePage = () => {
             <Button id="muiButtonAdd" className="button" type="submit">Add Players</Button>             
           </div>
         </form>
-        <Button><Link className="menu-link" to="/main">Play</Link></Button>
+        <Button disabled={!added}><Link className="menu-link" to="/main">Play</Link></Button>
         
         </div>
     </div>

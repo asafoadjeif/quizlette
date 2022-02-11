@@ -21,7 +21,7 @@ const Result = () => {
     let playersSumArr = []
     for (let i = 1 ; i <= numOfPlayers; i++) {
       console.log(i)
-      let result = await axios.get(`http://localhost:8000/users/${localStorage.getItem(`player${[i]}`)}`)
+      let result = await axios.get(`https://quizlette.herokuapp.com/${localStorage.getItem(`player${[i]}`)}`)
       let obj = {"name": result.data.Name, "points" : result.data.Points, "id": result.data._id }
       playersSumArr.push(obj)
     }
@@ -34,8 +34,8 @@ const Result = () => {
 
   const handleWins = async() => {
     console.log("hi")
-    let data = await axios.patch(`http://localhost:8000/users/${playersSum[0].id}/wins`)
-    let data2 = await axios.patch(`http://localhost:8000/users/points/reset`)
+    let data = await axios.patch(`https://quizlette.herokuapp.com/${playersSum[0].id}/wins`)
+    let data2 = await axios.patch(`https://quizlette.herokuapp.com/users/points/reset`)
   }
 
 
