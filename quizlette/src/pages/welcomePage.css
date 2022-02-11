@@ -288,3 +288,23 @@ body{
 #helloWorld {
     background-color: white;
 }
+
+#demo-simple-select-label {
+    color: white;
+    font-size: 12px;
+}
+
+
+
+#muiButtonAdd {
+    color: white;
+    font-size: 12px;
+}
+
+#itemonMenu {
+    color: black;
+}
+
+#demo-simple-select {
+    color: white;
+}

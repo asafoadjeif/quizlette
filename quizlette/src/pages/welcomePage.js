@@ -76,16 +76,16 @@ const WelcomePage = () => {
             label="Age"
             onChange={handleChange}
             >
-              <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={2}>2</MenuItem>
-              <MenuItem value={3}>3</MenuItem>
-              <MenuItem value={4}>4</MenuItem>
+              <MenuItem id="itemonMenu" value={1}>1</MenuItem>
+              <MenuItem id="itemonMenu" value={2}>2</MenuItem>
+              <MenuItem id="itemonMenu" value={3}>3</MenuItem>
+              <MenuItem id="itemonMenu" value={4}>4</MenuItem>
             </Select>
             </FormControl>
             <div >
             {players.map((player) => <NameInput/>)}
             </div>
-            <Button className="button" type="submit">Add Players</Button>             
+            <Button id="muiButtonAdd" className="button" type="submit">Add Players</Button>             
           </div>
         </form>
         <Button><Link className="menu-link" to="/main">Play</Link></Button>
